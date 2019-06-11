@@ -30,7 +30,7 @@ use pocketmine\event\entity\EntityLevelChangeEvent;
 use pocketmine\event\Listener;
 use pocketmine\level\generator\Generator;
 use pocketmine\level\generator\biome\Biome;
-
+use pocketmine\level\generator\GeneratorManager;
 use Ad5001\GenPainterPE\utils\Range;
 use Ad5001\GenPainterPE\generator\GenPainter;
 
@@ -55,7 +55,7 @@ class Main extends PluginBase implements Listener{
         if(!file_exists($this->getDataFolder() . "heightmaps/small_250x150.png")) file_put_contents($this->getDataFolder() . "heightmaps/small_250x150.png", $this->getResource("small_250x150.png"));
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         // Register generators
-        Generator::addGenerator(GenPainter::class, "genpainter");
+        GeneratorManager::addGenerator(GenPainter::class, "genpainter");
     }
 
     /**
